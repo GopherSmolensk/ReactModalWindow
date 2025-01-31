@@ -1,14 +1,23 @@
 import React, {   useState } from 'react';
 import './App.css';
 import Modal from './Modal/Modal.jsx'
+import img1 from "./images/x-files.jpg";
 
 function App() {
-  const [modalActive, setModalActive] = useState(true)
+  const [modalActive, setModalActive] = useState(false)
+ 
   return (
    <div className='app'>
     <main className='main'> 
-      <button className='open__btn'>открыть модальное окно</button>
-      <Modal active={modalActive} setActive={setModalActive}/>
+    <div className="img">
+                    <img className='img__item' src={img1} alt=""/>
+                    </div>  
+      <button className='open__btn' onClick={() => setModalActive(true)}>открыть описание</button>
+      <Modal active={modalActive} setActive={setModalActive}>
+        <p className='text'> Секретные материалы - открывают перед взрослой аудиторией мир обширного паранормального, космического и загадочного. В центре сюжета двое спец-агентов ФБР: страстный отшельник Малдер, верующий в инопланетную жизнь, и скептичная Скалли, с непреклонным умом рационала.</p>
+        <p className='text'>Они стремятся раскрыть скрытые правды за сохранеными в секрете сложными случаями. Между обманом и искренностью, реальностью и необъяснимым, они шагают по темным коридорам конспирологии, встречаясь с пришельцами, мутантами, духами и прочими "неизвестными".</p>
+        <p className='text'>Сюжет заряжен прямо-таки на электричестве напряжением и темными оттенками ужаса, переплетающихся с научной энциклопедией невозможного. В каждой серии Секретных материалов вы подаете заявку на подтверждение своей веры в непознанное или на вызов своего скепсиса. И вместе с тем, одариваете себя уникальной смесью интриги, эмоциональных переживаний и напряжения, которые лишь разгорают воображение.</p>
+      </Modal>
     </main>
    </div>
   );
